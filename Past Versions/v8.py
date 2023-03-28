@@ -31,15 +31,15 @@ def ask_to_play():
 
 
 def get_initial_payment():
-    while True:
+    value = 0
+    while value > MAX_STARTING_MONEY or value <= 0:
         try:
             value = float(input(f"Input payment of initial amount (0-{MAX_STARTING_MONEY}): "))
-            if value > MAX_STARTING_MONEY and value < 0:
-                return value
-            else:
+            if value > MAX_STARTING_MONEY or value <= 0:
                 print("Invalid input. Please try again.")
         except ValueError:
             print("Invalid input. Please try again.")
+    return value
 
 
 def get_token():
