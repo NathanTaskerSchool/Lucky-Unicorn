@@ -9,8 +9,11 @@ HORSE_PRIZE_MONEY = 0.5
 DONKEY_PRIZE_MONEY = 0
 
 
-def display_statistics():
-    print(f"Current Money: ${money:.2f}")
+def display_statistics(final):
+    if final:
+        print(f"Final Money: ${money:.2f}")
+    else:
+        print(f"Current Money: ${money:.2f}")
 
 
 def ask_to_play():
@@ -82,8 +85,8 @@ while playingGame:
     if ask_to_play():
         money -= ROUND_COST
         money += calculate_money_change(get_token())
-        display_statistics()
+        display_statistics(False)
     else:
         playingGame = False
 
-display_statistics()
+display_statistics(True)
