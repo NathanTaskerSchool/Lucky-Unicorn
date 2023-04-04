@@ -61,19 +61,15 @@ def print_prize_message(value):
 
 
 def calculate_money_change(token):
-    # I used literal strings instead of indexes, as indexes may change
-    if token == "unicorn":
-        print_prize_message(UNICORN_PRIZE_MONEY)
-        return UNICORN_PRIZE_MONEY
-    elif token == "zebra":
-        print_prize_message(ZEBRA_PRIZE_MONEY)
-        return ZEBRA_PRIZE_MONEY
-    elif token == "horse":
-        print_prize_message(HORSE_PRIZE_MONEY)
-        return HORSE_PRIZE_MONEY
-    elif token == "donkey":
-        print_prize_message(DONKEY_PRIZE_MONEY)
-        return DONKEY_PRIZE_MONEY
+    prize_money = {
+        "unicorn": UNICORN_PRIZE_MONEY,
+        "zebra": ZEBRA_PRIZE_MONEY,
+        "horse": HORSE_PRIZE_MONEY,
+        "donkey": DONKEY_PRIZE_MONEY
+    }
+    if token in prize_money:
+        print_prize_message(prize_money[token])
+        return prize_money[token]
     else:
         return 0
 
